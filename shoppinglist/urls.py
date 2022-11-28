@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ItemList
+from .views import ItemList, ItemEditView
 
 
 app_name = 'shoppinglist'
