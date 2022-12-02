@@ -18,6 +18,7 @@
 			<th>個数</th>
 			<th>期日</th>
 			<th>済み?</th>
+			<th>表示</th>
 			<th>編集</th>
 			<th>削除</th>
 			</tr>
@@ -31,12 +32,11 @@
 		<td>{{ item.count}}</td>
 		<td>{{ item.buy_date}}</td>
 		<td>{% if item.buy == False %} <font color='red'>Not yet</font> {% endif %}{% if item.buy == True %} Yet {% endif %}</td>
-		<td><a href="{% url 'shoppinglist:edit' %}">変更</a></td>
+		<td><a href="{% url 'shoppinglist:show'  %}">表示</a></td>
+		<td><a href="{% url 'shoppinglist:edit' %}">編集</a></td>
+		<td><a href="{% url 'shoppinglist:delete' %}">削除</a></td>
 	</tr>
 {% endfor%}
 </tbody>
 </table>
-<a href="{% url 'shoppinglist:edit' %}">変更</a>
-<li><a href="{% url 'shoppinglist:show' %}">表示</a></li>
-<li><a href="{% url 'shoppinglist:delete' %}">削除</a></li>
 {% endblock%}
