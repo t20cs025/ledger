@@ -64,3 +64,18 @@ class ItemShowView(TemplateView):
         context['form_id'] = ItemIdForm()
         return context
        
+       
+class ItemDeleteView(TemplateView):
+    model = Item
+    template_name = 'shoppinglist/item_delete.html'
+
+    def post(self, request, *args, **kwargs):
+        item_id = self.request.POST.get('item_id')
+        item = get_object_or_404(Item, pk=item_id)
+        item.delete()
+        return HttpResponseRedirect(reverse('shoppinglist:list'))
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = ItemIdForm()
+        return context
