@@ -64,3 +64,8 @@ class ItemShowView(TemplateView):
         context['form_id'] = ItemIdForm()
         return context
        
+class ItemAddView(CreateView):
+    model = Item
+    fields = ('name', 'item_url', 'count', 'buy_date', 'shop')
+    template_name = 'shoppinglist/item_add.html'
+    success_url = 'list/'
