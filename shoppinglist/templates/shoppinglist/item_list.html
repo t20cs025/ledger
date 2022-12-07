@@ -13,7 +13,7 @@
 <table class="table">
 	<thead class="table-dark">
 		<tr>
-			<th>#</th>
+			<th>ID</th>
 			<th>名前</th>
 			<th>個数</th>
 			<th>期日</th>
@@ -31,7 +31,7 @@
 		<td>{{ item.name }}</td>
 		<td>{{ item.count}}</td>
 		<td>{{ item.buy_date}}</td>
-		<td>{% if item.buy == False %} <font color='red'>Not yet</font> {% endif %}{% if item.buy == True %} Yet {% endif %}</td>
+		<td>{% if item.buy == False %} <font color='red'>未</font> {% endif %}{% if item.buy == True %} Yet {% endif %}</td>
 		<!-- <td><a href="{% url 'shoppinglist:show' %}">表示</a></td> -->
 		<td><a href="{% url 'shoppinglist:edit' item.id %}">編集</a></td>
 		<td><a href="{% url 'shoppinglist:delete' %}">削除</a></td>

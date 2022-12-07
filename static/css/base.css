@@ -8,6 +8,15 @@ header {
     background-color: white;
 }
 
+thead {
+background-color: black;
+color: aliceblue;
+
+}
+.table {
+    width: 100%;
+}
+
 .logo {
     text-align: center;
 }
