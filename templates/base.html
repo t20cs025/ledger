@@ -5,12 +5,21 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{% block title %} 買い物リストメインページ{% endblock %}</title>
-	<link rel="stylesheet"href="{% static '/bootstrap/css/bootstrap.min.css'%}">
+	<!-- <link rel="stylesheet"href="{% static '/bootstrap/css/bootstrap.min.css'%}"> -->
+	<link rel="stylesheet"href="{% static '/css/base.css'%}">
 </head>
 <body>
+	<header>
+		<div class = "logo">
+			<img src = "{% static "/images/shopping.png"%}" width="50">
+		</div>
+		
+	</header>
 	<div class="container">
 	<nav class="nav">
-		<div class="navbar-brand">MyPage</div>
+		<div class="navbar-brand">
+			<img src="{% static "/images/home.png"%}" width="30">
+			MyPage</div>
 	</nav>
 	</div>
 	{% block main %}{% endblock %}
