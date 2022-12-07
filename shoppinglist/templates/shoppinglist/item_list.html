@@ -34,7 +34,7 @@
 		<td>{% if item.buy == False %} <font color='red'>未</font> {% endif %}{% if item.buy == True %} Yet {% endif %}</td>
 		<!-- <td><a href="{% url 'shoppinglist:show' %}">表示</a></td> -->
 		<td><a href="{% url 'shoppinglist:edit' item.id %}">編集</a></td>
-		<td><a href="{% url 'shoppinglist:delete' %}">削除</a></td>
+		<td><a href="{% url 'shoppinglist:delete' item.id %}">削除</a></td>
 		
 	</tr>
 {% endfor%}

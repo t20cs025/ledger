@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.shortcuts import get_object_or_404
 from .forms import ItemBuy, ItemIdForm, ItemForm
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import CreateView,UpdateView
+from django.views.generic.edit import CreateView,UpdateView,DeleteView
 
 
 class ItemList(ListView):
@@ -76,17 +76,22 @@ class ItemAddView(CreateView):
     success_url = 'list/'
 
        
-class ItemDeleteView(TemplateView):
+class ItemDeleteView(DeleteView):
     model = Item
+    fields = ('name', 'item_url', 'count', 'buy_date', 'shop')
     template_name = 'shoppinglist/item_delete.html'
+    success_url = 'list/'
 
-    def post(self, request, *args, **kwargs):
-        item_id = self.request.POST.get('item_id')
-        item = get_object_or_404(Item, pk=item_id)
-        item.delete()
-        return HttpResponseRedirect(reverse('shoppinglist:list'))
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['form'] = ItemIdForm()
-        return context
+#     model = Item
+#     template_name = 'shoppinglist/item_delete.html'
+# 
+#     def post(self, request, *args, **kwargs):
+#         item_id = self.request.POST.get('item_id')
+#         item = get_object_or_404(Item, pk=item_id)
+#         item.delete()
+#         return HttpResponseRedirect(reverse('shoppinglist:list'))
+# 
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['form'] = ItemIdForm()
+#         return context
